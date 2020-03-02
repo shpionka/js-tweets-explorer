@@ -1,0 +1,23 @@
+{
+  "name": "js-tweets-explorer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@elastic/elasticsearch": "^7.6.0",
+    "axios": "^0.19.2",
+    "btoa": "^1.2.1",
+    "bunyan": "^1.8.12",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.2",
+    "mongoose-beautiful-unique-validation": "^7.1.1"
+  },
+  "devDependencies": {
+    "jest": "^25.1.0"
+  }
+}
