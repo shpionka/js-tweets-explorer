@@ -1,9 +1,12 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 
 const searchService = require('./services/search-service');
 const syncService = require('./services/sync-service');
 const collectorService = require('./services/tweet-collector-service');
+
+app.use(cors());
 
 app.get('/health', (req, res) => {
     res.send('OK')
@@ -15,7 +18,7 @@ app.get('/api/tweets', async (req, res) => {
         // if have have query, let's send request to elastic
         results = await searchService.searchTweets(req.query.q);
     } else {
-        // if we don't have query let's fetch latest inserted tweets
+        // if we don't have query let's fetch latest inserted tweet-item
         results = await searchService.findLatestTweets(10);
     }
 

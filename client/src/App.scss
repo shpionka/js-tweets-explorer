@@ -1,0 +1,22 @@
+
+.app {
+  height: 100%;
+}
+
+.top-content {
+  height: 30%;
+  min-height: 200px;
+}
+
+
+
+.app-header {
+  background-color: #282c34;
+  /*min-height: 100vh;*/
+
+  /*flex-direction: column;*/
+  /*align-items: center;*/
+  /*justify-content: center;*/
+  font-size: calc(10px + 2vmin);
+  color: white;
+}

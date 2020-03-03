@@ -5,8 +5,11 @@ function findLatestTweets(limit) {
     return db.findLatestTweets(limit);
 }
 
-function searchTweets(query) {
-    return es.search(query);
+async function searchTweets(query) {
+    const result = await es.search(query);
+    return result.map(esDoc => {
+        return esDoc._source;
+    })
 }
 
 module.exports = {

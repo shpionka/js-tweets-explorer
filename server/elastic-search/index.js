@@ -13,7 +13,9 @@ async function createIndexIfNotExist(){
                     properties: {
                         tweet_id: { type: 'keyword' },
                         text: { type: 'text' },
-                        username: { type: 'keyword' }
+                        username: { type: 'keyword' },
+                        retweet_count: {type: 'number'},
+                        favorite_count: {type: 'number'}
                     }
                 }
             }
