@@ -34,9 +34,13 @@ async function search(query){
         index: 'tweets',
         body: {
             query: {
-                multi_match: {
-                    query:    query,
-                    fields: [ "tweet_id", "text", "user" ]
+                prefix: {
+                    text:  {
+                        value: query
+                    },
+                    username:  {
+                        value: query
+                    },
                 }
             }
         }

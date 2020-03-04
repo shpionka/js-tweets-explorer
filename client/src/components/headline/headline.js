@@ -1,12 +1,12 @@
 import React from 'react';
-import './headline.scss';
+import Typography from '@material-ui/core/Typography';
 
 const Headline = () => {
     return (
         <div className="headline">
-            <div className="headline-text">
-                <h1>JS Tweets Explorer</h1>
-            </div>
+            <Typography component="h1" variant="h2">
+                JS Tweets Explorer
+            </Typography>
         </div>
     )
 };

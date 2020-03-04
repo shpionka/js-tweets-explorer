@@ -1,9 +1,34 @@
 import React, {useState, useEffect} from 'react';
-import './App.scss';
 import Headline from './components/headline/headline';
 import Search from './components/search/search';
 import TweetList from './components/tweet-list/TweetList';
 import {fetchTweets, queryTweetsByKeyword} from "./api/api";
+
+import Container from '@material-ui/core/Container';
+import CssBaseline from '@material-ui/core/CssBaseline';
+
+import { makeStyles } from '@material-ui/core/styles';
+
+
+const useStyles = makeStyles(theme => ({
+    app: {
+        marginTop: theme.spacing(4),
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
+    avatar: {
+        margin: theme.spacing(1),
+        backgroundColor: theme.palette.secondary.main,
+    },
+    form: {
+        width: '100%', // Fix IE 11 issue.
+        marginTop: theme.spacing(1),
+    },
+    submit: {
+        margin: theme.spacing(3, 0, 2),
+    },
+}));
 
 function App() {
     const [tweets, setTweets] = useState([]);
@@ -26,8 +51,11 @@ function App() {
         }).catch(e => setError(e)).finally(() => setIsLoading(false));
     }
 
+    const classes = useStyles();
+
     return (
-        <div className="app">
+        <Container className={classes.app}>
+            <CssBaseline />
             <div className="top-content">
                 <Headline/>
             </div>
@@ -38,7 +66,7 @@ function App() {
                         <h2>Oops, something went wrong</h2> :
                         <TweetList tweets={tweets}/>
             }
-        </div>
+        </Container>
     );
 }
 
