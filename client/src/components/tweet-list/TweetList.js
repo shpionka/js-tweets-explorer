@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import TweetItem from "../tweet-item/TweetItem";
 
 const TweetList = ({tweets}) => {

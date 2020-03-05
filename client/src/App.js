@@ -9,7 +9,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 import { makeStyles } from '@material-ui/core/styles';
 
-
 const useStyles = makeStyles(theme => ({
     app: {
         marginTop: theme.spacing(4),
