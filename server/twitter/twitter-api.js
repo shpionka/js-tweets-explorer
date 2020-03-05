@@ -7,8 +7,8 @@ const config = require('../config')[env];
 
 async function fetchAuthToken() {
 
-    const consumerKey = "FXWOhfwf0LMPJdBGJEOZRWTHi";
-    const consumerSecret = "71rqL0jN0wWli8GLJuLL3eaNLngyzg6Ro2XNVNkQHySRoJckiZ";
+    const consumerKey = config.twitter.consumerKey;
+    const consumerSecret = config.twitter.consumerSecret;
 
     const credentials = encodeURI(consumerKey) + ":" + encodeURI(consumerSecret);
 

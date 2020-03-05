@@ -15,6 +15,9 @@ services:
     build: .
     ports:
       - "8000:8000"
+    environment:
+      - "JS_TWEETS_TWEETER_CONSUMER_KEY=${JS_TWEETS_TWEETER_CONSUMER_KEY}"
+      - "JS_TWEETS_TWEETER_CONSUMER_SECRET=${JS_TWEETS_TWEETER_CONSUMER_SECRET}"
     depends_on:
       - elastic
       - mongo
