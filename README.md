@@ -33,6 +33,12 @@ Front-end is hosted with firebase, because it's free and has domain name attache
 yarn deploy
 ```
 
+## Not completed
+- [ ] Didn't provide tests, since ran out of time
+- [ ] Used locally installed Docker and Elasic Search, ideally I'd use Docker/Docker-Compose for local setup.
+- [ ] Search is prefix based only. Elasic Search is quite new to me, but query can be improved. 
+- [ ] No throttling support for Twitter. 
+
 
 
 
