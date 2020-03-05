@@ -25,12 +25,22 @@ Sync service helps to keep elastic search and mongo consistent. It reads batches
 ## Hosting & Deployment
 Server is hosted using Serverless and AWS lambda. It requires serverless setup and AWS account and can be deployed by running:
 ```
+# Actual deploy
 npm run deploy
+
+# API logs 
+npm run logs:api:watch
+
+# Collector logs 
+npm run logs:collector:watch
+
+# Sync logs 
+npm run logs:sync:watch
 ```
 
 Front-end is hosted with firebase, because it's free and has domain name attached to it. It requires firebase account and can be deployed with:
 ```
-yarn deploy
+yarn build:prod && yarn deploy
 ```
 
 ## Not completed
