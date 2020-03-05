@@ -4,7 +4,6 @@ import config from '../config';
 axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
 export async function fetchTweets() {
-    console.log(`hello`, config);
     const response =  await axios.get(`${config.api}/api/tweets`);
     return response.data;
 }
