@@ -1,6 +1,6 @@
-const  client = require("./client");
+const client = require("./client");
 
-async function createIndexIfNotExist(){
+async function createIndexIfNotExist() {
     try {
         await client.indices.get({
             index: 'tweets'
@@ -11,57 +11,62 @@ async function createIndexIfNotExist(){
             body: {
                 mappings: {
                     properties: {
-                        tweet_id: { type: 'keyword' },
-                        text: { type: 'text' },
-                        username: { type: 'keyword' },
+                        tweet_id: {type: 'keyword'},
+                        text: {type: 'text'},
+                        username: {type: 'keyword'},
                         retweet_count: {type: 'number'},
                         favorite_count: {type: 'number'}
                     }
                 }
             }
-        },{ ignore: [400] });
+        }, {ignore: [400]});
     }
 }
 
-async function dropIndexes(){
+async function dropIndexes() {
     return await client.indices.delete({
         index: 'tweets'
     });
 }
 
-async function search(query){
-    const { body } = await client.search({
-        index: 'tweets',
-        body: {
-            query: {
-                prefix: {
-                    text:  {
-                        value: query
+async function search(query) {
+    try {
+        const {body} = await client.search({
+            index: 'tweets',
+            body: {
+                query: {
+                    prefix: {
+                        text: {
+                            value: query
+                        }
                     }
                 }
             }
-        }
-    });
+        });
 
-    return body.hits.hits;
+        return body.hits.hits;
+    } catch (e){
+        console.error("Failed to perform query", e);
+        throw e;
+    }
 }
 
-async function count(){
-    const result =  await client.count({ index: 'tweets' });
+async function count() {
+    const result = await client.count({index: 'tweets'});
     return result.body.count;
 }
 
-async function bulkInsert(tweets){
+async function bulkInsert(tweets) {
 
     const body = tweets.map(t => {
         return {
             tweet_id: t.tweet_id,
             text: t.text,
             username: t.username
-       };
-    }).flatMap(doc => [{ index: { _index: 'tweets' } }, doc]);
+        };
+    }).flatMap(doc => [{index: {_index: 'tweets'}}, doc]);
 
-    const { body: bulkResponse } = await client.bulk({
+    const {body: bulkResponse} = await client.bulk({
         refresh: true,
         body
     });

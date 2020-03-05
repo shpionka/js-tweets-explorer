@@ -13,16 +13,20 @@ app.get('/health', (req, res) => {
 });
 
 app.get('/api/tweets', async (req, res) => {
-    let results = [];
-    if (req.query && req.query.q){
-        // if has a query, let's send a request to elastic
-        results = await searchService.searchTweets(req.query.q);
-    } else {
-        // if we don't have query let's fetch latest inserted tweets
-        results = await searchService.findLatestTweets(10);
-    }
+    try {
+        let results = [];
+        if (req.query && req.query.q){
+            // if has a query, let's send a request to elastic
+            results = await searchService.searchTweets(req.query.q);
+        } else {
+            // if we don't have query let's fetch latest inserted tweets
+            results = await searchService.findLatestTweets(10);
+        }
 
-    res.send(results);
+        res.send(results);
+    } catch (e){
+        res.status(500).send("Internal server error");
+    }
 });
 
 app.get('/debug/clear-es', async (req, res) => {

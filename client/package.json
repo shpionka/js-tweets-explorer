@@ -16,7 +16,7 @@
     "webpack-cli": "^3.3.11"
   },
   "scripts": {
-    "start": "REACT_APP_STAGE=PROD react-scripts start",
+    "start": "react-scripts start",
     "lint": "./node_modules/.bin/eslint ./src",
     "build:dev": "REACT_APP_STAGE=DEV react-scripts build",
     "build:prod": "REACT_APP_STAGE=PROD react-scripts build",

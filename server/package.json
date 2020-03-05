@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "NODE_ENV=DEV node index.js",
     "logs:api": "./node_modules/.bin/sls logs -f api",
     "logs:api:watch": "./node_modules/.bin/sls logs -f api -t",
     "logs:collector": "./node_modules/.bin/sls logs -f collector",

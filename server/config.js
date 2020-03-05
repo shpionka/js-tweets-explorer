@@ -1,10 +1,10 @@
 module.exports = {
     DEV: {
         es: {
-            uri: 'http://localhost:9200'
+            uri: 'http://elastic:9200'
         },
         mongodb: {
-            uri: 'mongodb://localhost/js-tweets-explorer',
+            uri: 'mongodb://mongo/js-tweets-explorer',
         },
         twitter: {
             pageSize: 10,
