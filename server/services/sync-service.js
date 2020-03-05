@@ -1,10 +1,12 @@
 const db = require('../db');
 const syncStatus = require('../constants/sync-status');
 const es = require('../elastic-search');
+const env = process.env.NODE_ENV || 'DEV';
+const config = require('../config')[env];
 
 async function syncTweetsToElasticSearch() {
     console.info('Syncing tweets to elastic search');
-    const notSyncedTweets = await db.findTweetsBySyncStatus(10, syncStatus.INITIAL_STATUS);
+    const notSyncedTweets = await db.findTweetsBySyncStatus(config.sync.pageSize, syncStatus.INITIAL_STATUS);
     console.info('Found tweeets to sync to elastic search', notSyncedTweets.length);
 
     if (notSyncedTweets.length > 0) {

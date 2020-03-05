@@ -4,6 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "logs:api": "./node_modules/.bin/sls logs -f api",
+    "logs:api:watch": "./node_modules/.bin/sls logs -f api -t",
+    "logs:collector": "./node_modules/.bin/sls logs -f collector",
+    "logs:collector:watch": "./node_modules/.bin/sls logs -f collector -t",
+    "logs:sync": "./node_modules/.bin/sls logs -f esSync",
+    "logs:sync:watch": "./node_modules/.bin/sls logs -f esSync -t",
+    "deploy": "./node_modules/.bin/sls deploy --aws-s3-accelerate",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -16,9 +23,12 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^5.9.2",
-    "mongoose-beautiful-unique-validation": "^7.1.1"
+    "mongoose-beautiful-unique-validation": "^7.1.1",
+    "serverless": "^1.65.0",
+    "serverless-http": "^2.3.2"
   },
   "devDependencies": {
-    "jest": "^25.1.0"
+    "jest": "^25.1.0",
+    "serverless-offline": "^5.12.1"
   }
 }

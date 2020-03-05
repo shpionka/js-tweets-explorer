@@ -2,6 +2,9 @@ const axios = require('axios');
 const btoa = require('btoa');
 const querystring = require('querystring');
 
+const env = process.env.NODE_ENV || 'DEV';
+const config = require('../config')[env];
+
 async function fetchAuthToken() {
 
     const consumerKey = "FXWOhfwf0LMPJdBGJEOZRWTHi";
@@ -36,7 +39,7 @@ async function queryTweets(token, hashtag, sinceId) {
 
         const qs = querystring.stringify({
             q: `#${hashtag}`,
-            count: 10,
+            count: config.twitter.pageSize,
             since_id: sinceId
         });
 

@@ -15,10 +15,10 @@ app.get('/health', (req, res) => {
 app.get('/api/tweets', async (req, res) => {
     let results = [];
     if (req.query && req.query.q){
-        // if have have query, let's send request to elastic
+        // if has a query, let's send a request to elastic
         results = await searchService.searchTweets(req.query.q);
     } else {
-        // if we don't have query let's fetch latest inserted tweet-item
+        // if we don't have query let's fetch latest inserted tweets
         results = await searchService.findLatestTweets(10);
     }
 

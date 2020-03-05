@@ -1,8 +1,19 @@
 const { Client } = require('@elastic/elasticsearch');
+const env = process.env.NODE_ENV || 'DEV';
+const config = require('../config')[env];
 
 function createClient() {
-    const client = new Client({ node: 'http://localhost:9200' });
-    return client;
+    if (process.env.NODE_ENV === 'DEV'){
+        return new Client({ node: config.es.uri });
+    } else {
+        return new Client({
+            node: config.es.uri,
+            auth: {
+                username: config.es.username,
+                password: config.es.password
+            }
+        });
+    }
 }
 
 module.exports = createClient();

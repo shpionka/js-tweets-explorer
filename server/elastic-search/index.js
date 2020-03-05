@@ -37,10 +37,7 @@ async function search(query){
                 prefix: {
                     text:  {
                         value: query
-                    },
-                    username:  {
-                        value: query
-                    },
+                    }
                 }
             }
         }
