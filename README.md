@@ -1,8 +1,5 @@
 # Tweets explorer
 
-DEMO:
-https://tweets-explorer.web.app/
-
 Tweets explorer helps you to find best tweets by hashtag `#javascript`.
 It's build with help of React, Node, Express, Mongo, ElasticSearch, Serverless and ❤️
 
