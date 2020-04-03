@@ -3,6 +3,8 @@
 Tweets explorer helps you to find best tweets by hashtag `#javascript`.
 It's build with help of React, Node, Express, Mongo, ElasticSearch, Serverless and ❤️
 
+![project image](https://user-images.githubusercontent.com/9405042/78396246-4e544300-75ef-11ea-92f2-4175d9d8d6a7.png)
+
 ## Design
 
 Tweets explorer consists of 4 parts:
