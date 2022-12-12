@@ -22,7 +22,7 @@
     "btoa": "^1.2.1",
     "bunyan": "^1.8.12",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "mongoose": "^5.9.2",
     "mongoose-beautiful-unique-validation": "^7.1.1",
     "serverless": "^1.65.0",
